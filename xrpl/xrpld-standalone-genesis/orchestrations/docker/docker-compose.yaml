@@ -1,0 +1,19 @@
+#! Run xrpld in standalone mode with a genesis ledger (<https://xrpl.org/docs/infrastructure/testing-and-auditing/start-a-new-genesis-ledger-in-stand-alone-mode>).
+
+services:
+  xrpld-standalone-genesis:
+    image: xrpllabsofficial/xrpld:latest
+    environment:
+      - XRPLD_RPC_PORT=5005
+      - XRPLD_WS_PORT=80
+      - XRPLD_VALIDATORS=validators.txt
+    volumes:
+      - ./config/:/config/
+    command: [
+      "rippled",
+      "--conf",
+      "/rippled.cfg",
+      "--standalone", # run in standalone mode
+      "--start" # create a new genesis ledger
+      ]
+    restart: always
