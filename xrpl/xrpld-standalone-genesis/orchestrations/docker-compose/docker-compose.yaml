@@ -6,14 +6,15 @@ services:
     environment:
       - XRPLD_RPC_PORT=5005
       - XRPLD_WS_PORT=80
-      - XRPLD_VALIDATORS=validators.txt
+      # - XRPLD_VALIDATORS=validators.txt
     volumes:
-      - ./config/:/config/
-    command: [
-      "rippled",
-      "--conf",
-      "/rippled.cfg",
-      "--standalone", # run in standalone mode
-      "--start" # create a new genesis ledger
+      - ${BLOCKLOCAL_BLOCKCHAIN_CONFIG_BASE_PATH}/config/:/config/
+    command:
+      [
+        "rippled",
+        "--conf",
+        "/rippled.cfg",
+        "--standalone", # run in standalone mode
+        "--start" # create a new genesis ledger
       ]
     restart: always

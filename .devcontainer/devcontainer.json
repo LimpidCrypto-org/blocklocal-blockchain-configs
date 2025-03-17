@@ -8,7 +8,9 @@
 		"vscode": {
 			"extensions": [
 				"adamvoss.vscode-languagetool",
-				"yzhang.markdown-all-in-one"
+				"yzhang.markdown-all-in-one",
+				"p1c2u.docker-compose",
+				"ms-azuretools.vscode-docker"
 			]
 		}
 	},
